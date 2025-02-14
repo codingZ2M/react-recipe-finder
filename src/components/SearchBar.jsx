@@ -7,7 +7,7 @@ const SearchBar = ({ searchQuery, setSearchQuery }) => {
         type="text"
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
-        placeholder="Search recipes..."
+        placeholder="Search Recipes By Name..."
         className="p-2 border border-gray-300 rounded-md shadow-sm focus:ring focus:ring-blue-400 px-20"
       />
     </div>

@@ -1,10 +1,15 @@
 import React from "react";
 import RecipeCard from "./RecipeCard";
 
-const RecipeList = ({ recipes }) => {
+const RecipeList = ({ filteredRecipesByName, availableIngredients }) => {
+
+    const recipesByIngredients = filteredRecipesByName.filter(recipe =>
+      recipe.requirements.every(req => availableIngredients.find(ing => ing.id === req && ing.available))
+    );
+  
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-4">
-      {recipes.map((recipe) => (
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 my-10">
+      {recipesByIngredients.map((recipe) => (
         <RecipeCard key={recipe.id} recipe={recipe} />
       ))}
     </div>
