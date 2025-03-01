@@ -5,11 +5,12 @@ const useIngredients = () => {
   const [availableIngredients, setAvailableIngredients] = useState(ingredients);
 
   // Function to toggle ingredient availability
+  // Ref: https://www.codingz2m.com/post/functional-updates-react-example
   const toggleAvailability = (id) => {
     setAvailableIngredients((prevIngredients) =>
       prevIngredients.map((ingredient) =>
         ingredient.id === id
-          ? { ...ingredient, available: !ingredient.available }
+          ? { ...ingredient, available: !ingredient.available } // Spreads (...ingredient) to keep other properties unchanged.
           : ingredient
       )
     );

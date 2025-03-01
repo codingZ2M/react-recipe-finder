@@ -3,6 +3,7 @@ import RecipeCard from "./RecipeCard";
 
 const RecipeList = ({ filteredRecipesByName, availableIngredients }) => {
 
+  // Refer: https://www.codingz2m.com/post/difference-between-find-and-filter-javascript
     const recipesByIngredients = filteredRecipesByName.filter(recipe =>
       recipe.requirements.every(req => availableIngredients.find(ing => ing.id === req && ing.available))
     );
